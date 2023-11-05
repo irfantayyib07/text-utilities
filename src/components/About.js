@@ -1,6 +1,9 @@
-import { useState } from "react";
+function About(props) {
+ let styles = {
+  color: props.mode === "light" ? "#2b3035" : "white",
+  bgColor: props.mode === "light" ? "white" : "#131518",
+ }
 
-function About() {
  return (
   <div className="container my-3">
    <h4>About Us</h4>

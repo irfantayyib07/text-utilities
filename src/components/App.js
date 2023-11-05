@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 function App() {
   const [mode, setMode] = useState("light");
   const [alert, setAlert] = useState(null);
+  const [timer, setTimer] = useState();
 
   function toggleMode() {
     if (mode === "light") {
@@ -16,7 +17,8 @@ function App() {
       document.body.style.color = "white";
 
       showAlert("dark mode enabled", "success");
-      setTimeout(() => setAlert(null), 800);
+      clearTimeout(timer);
+      setTimer(setTimeout(() => setAlert(null), 800));
       setMode("dark");
     } else {
       document.querySelector(".navbar").removeAttribute("data-bs-theme");
@@ -24,7 +26,8 @@ function App() {
       document.body.style.color = "black";
 
       showAlert("light mode enabled", "success");
-      setTimeout(() => setAlert(null), 800);
+      clearTimeout(timer);
+      setTimer(setTimeout(() => setAlert(null), 800));
       setMode("light");
     }
   }
@@ -40,10 +43,10 @@ function App() {
     <>
     <Router>
       <NavBar title="TextUtils" mode={mode} toggleMode={toggleMode} />
-      <Alert alert={alert} setAlert={setAlert}/>
+      <Alert alert={alert}/>
       <Routes>
         <Route path="/" element={<TextForm heading="Enter your text" mode={mode} />} exact />
-        <Route path="/about" element={<About />} />
+        <Route path="/about" element={<About mode={mode} />} />
       </Routes>
     </Router>
     </>

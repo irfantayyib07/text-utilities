@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import React from 'react'
 
 const Alert = (props) => {
@@ -9,8 +7,10 @@ const Alert = (props) => {
  }
 
  return (
-  props.alert?.message && <div className={`alert alert-${props.alert.type} d-flex align-items-center`} role="alert">
-   {capitalize() + ": " + props.alert.message}
+  props.alert?.message && <div className="d-flex align-items-center justify-content-center">
+   <div style={{position:"absolute"}} className={`alert alert-${props.alert.type} d-flex align-items-center`} role="alert">
+    {capitalize() + ": " + props.alert.message}
+   </div>
   </div>
  )
 } 

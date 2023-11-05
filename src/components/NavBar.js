@@ -2,14 +2,9 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 function NavBar(props) {
- let txtColor, toggleTo;
-
- if (props.mode === "light") {
-  txtColor = "text-dark";
-  toggleTo = "dark";
- } else {
-  txtColor = "text-light";
-  toggleTo = "light";
+ let styles = {
+  txtColor: props.mode === "light" ? "text-dark" : "text-light",
+  toggleTo: props.mode === "light" ? "dark" : "light",
  }
 
  return (
@@ -34,7 +29,7 @@ function NavBar(props) {
 
     <div className="form-check form-switch">
      <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onClick={props.toggleMode} />
-     <label className={`form-check-label ${txtColor}`} htmlFor="flexSwitchCheckDefault" style={{"userSelect": "none"}}>{`Enable ${toggleTo} mode`}</label>
+     <label className={`form-check-label ${styles.txtColor}`} htmlFor="flexSwitchCheckDefault" style={{"userSelect": "none"}}>{`Enable ${styles.toggleTo} mode`}</label>
     </div>
    </div>
   </nav>
