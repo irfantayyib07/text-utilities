@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function About() {
  return (
-  <div className="container">
+  <div className="container my-3">
    <h4>About Us</h4>
 
    <div className="accordion" id="accordionExample">
