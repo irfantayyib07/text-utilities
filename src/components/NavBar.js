@@ -1,6 +1,16 @@
 import PropTypes from 'prop-types';
 
 function NavBar(props) {
+ let txtColor, toggleTo;
+
+ if (props.mode === "light") {
+  txtColor = "text-dark";
+  toggleTo = "dark";
+ } else {
+  txtColor = "text-light";
+  toggleTo = "light";
+ }
+
  return (
   <nav className="navbar navbar-expand-lg bg-body-tertiary">
    <div className="container-fluid">
@@ -16,9 +26,14 @@ function NavBar(props) {
        <a className="nav-link" aria-current="page" href="/">Home</a>
       </li>
       <li className="nav-item">
-       <a className="nav-link" href="/about">Link</a>
+       <a className="nav-link" href="/about">About</a>
       </li>
      </ul>
+    </div>
+
+    <div className="form-check form-switch">
+     <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onClick={props.toggleMode} />
+     <label className={`form-check-label ${txtColor}`} htmlFor="flexSwitchCheckDefault" style={{"userSelect": "none"}}>{`Enable ${toggleTo} mode`}</label>
     </div>
    </div>
   </nav>
