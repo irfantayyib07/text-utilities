@@ -8,11 +8,11 @@ const Alert = (props) => {
 
  return (
   props.alert?.message && <div className="d-flex align-items-center justify-content-center">
-   <div style={{position:"absolute"}} className={`alert alert-${props.alert.type} d-flex align-items-center`} role="alert">
+   <div style={{ position: "absolute" }} className={`alert alert-${props.alert.type} d-flex align-items-center`} role="alert">
     {capitalize() + ": " + props.alert.message}
    </div>
   </div>
  )
-} 
+}
 
 export default Alert;
