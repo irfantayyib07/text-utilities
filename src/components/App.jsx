@@ -42,7 +42,7 @@ function App() {
  return (
   <>
    <Router>
-    <NavBar title="TextUtils" mode={mode} toggleMode={toggleMode} />
+    <NavBar title="Text Utilties" mode={mode} toggleMode={toggleMode} />
     <Alert alert={alert} />
     <Routes>
      <Route path="/" element={<TextForm heading="Enter your text" mode={mode} />} exact />
